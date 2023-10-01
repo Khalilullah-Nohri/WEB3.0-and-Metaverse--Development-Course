@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment</title>
+</head>
+
+<body>
+    <button id="myButton">Click me</button>
+    <button id="showButton">Show Element</button>
+    <button id="hideButton">Hide Element</button>
+    <div id="elementToHide">This is the element to hide.</div>
+    <a href="#" id="colorChangeLink">Hover over me</a>
+    <a href="#" id="scrollToTopLink">Scroll to top</a>
+    <a href="#" id="playSoundLink">Play Sound</a>
+    <audio id="myAudio" src="honesty.mp4"></audio>
+
+    <a href="https://www.google.com" target="_blank">Open New Window</a> <!-- Q#6 -->
+
+    <button id="hoverButton">Hover over me</button>
+    <button href="#" id="playSoundLink2">Play Sound</button>
+    <audio id="myAudio" src="honesty.mp4"></audio>
+
+    <div id="hoverElement">Hover over me</div>
+    <div id="hideOnMouseOut">Move the mouse out of me</div>
+
+    <a href="#" id="openWindowLink">Open New Window</a>
+
+    <!-- *************************************Chapter 49 To 50****************************************** -->
+
+    <h1>Registration Form</h1>
+
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+
+        <label for="married">Marital Status:</label>
+        <input type="checkbox" id="married" name="married"> Married<br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- *************************************Chapter 51****************************************** -->
+
+    <!-- Q#1 -->
+    <span>
+
+        <p class="hidden-content">This is some introductory text.</p>
+        <a id='one' href="#" onclick="toggleVisibility()">Show More</a>
+    </span>
+
+    <!-- Q#2 -->
+    <p id="paragraph">This is a sample paragraph. It contains some text for searching.</p>
+    <input type="text" id="searchInput" placeholder="Search for a word">
+    <button onclick="searchWord()">Search</button>
+
+    <!-- Q#3 -->
+    <p id="paragraph2">This is a sample paragraph. It contains some text for searching.</p>
+    <button onclick="searchLongestWord()">Click to find largest word in above paragraph</button>
+
+    <!-- Q#4 -->
+    <input type="text" id="textField" placeholder="Enter text">
+    <button onclick="setTextFromField()">Set Paragraph Text</button>
+    <p id="outputParagraph"></p>
+
+    <!-- Q#5 -->
+    <input type="text" id="textField2" placeholder="Enter text">
+    <button onclick="setTextFromField2()">Set Paragraph Text</button>
+    <p id="outputParagraph2"></p>
+
+    <!-- Q#6 -->
+    <input type="text" id="textField3" placeholder="Enter text">
+    <button onclick="setTextFromField3()">Set Paragraph Text</button>
+    <p id="outputParagraph3"></p>
+
+    <!-- *************************************Chapter 52****************************************** -->
+
+    <!-- Q#1 -->
+    <p id="boldText" onclick="toggleBold()">Click me to make text bold.</p>
+
+    <!-- Q#2 -->
+    <div onmouseover="hideImage()" onmouseout="showImage()">
+        <img id="myImage" src="download.jfif" alt="Image">
+        <p id="imageText" style="display: none;">Text to show on hover.</p>
+    </div>
+
+    <!-- Q#3 -->
+    <h1 id="hoverHeading" onmouseover="this.style.backgroundColor='black'; this.style.color='lightgray';"
+        onmouseout="this.style.backgroundColor=''; this.style.color='';">Hover over me</h1>
+
+    <!-- Q#4 -->
+    <p onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Hover over me
+        for underline.</p>
+
+
+    <script>
+
+        // *************************************Chapter 46 To 48******************************************
+
+        // Q#1
+        const button = document.getElementById('myButton');
+        button.addEventListener('click', function () {
+            alert('Button clicked!');
+        });
+
+        // Q#2
+        const showButton = document.getElementById('showButton');
+        const hideButton = document.getElementById('hideButton');
+        const elementToHide = document.getElementById('elementToHide');
+
+        showButton.addEventListener('click', function () {
+            elementToHide.style.display = 'block';
+        });
+
+        hideButton.addEventListener('click', function () {
+            elementToHide.style.display = 'none';
+        });
+
+        // Q#3
+
+        const colorChangeLink = document.getElementById('colorChangeLink');
+
+        colorChangeLink.addEventListener('mouseenter', function () {
+            colorChangeLink.style.color = 'red';
+        });
+
+        colorChangeLink.addEventListener('mouseleave', function () {
+            colorChangeLink.style.color = 'blue';
+        });
+
+        // Q#4
+
+        const scrollToTopLink = document.getElementById('scrollToTopLink');
+
+        scrollToTopLink.addEventListener('click', function () {
+            window.scrollTo(0, 0);
+        });
+
+        // Q#5
+        const playSoundLink = document.getElementById('playSoundLink');
+        const myAudio = document.getElementById('myAudio');
+
+        playSoundLink.addEventListener('click', function () {
+            myAudio.play();
+        });
+
+        // Q#7
+        const button2 = document.getElementById('myButton');
+        button2.addEventListener('click', function () {
+            alert('Button clicked!');
+        })
+
+        // Q#8
+        const hoverButton = document.getElementById('hoverButton');
+
+        hoverButton.addEventListener('mouseenter', function () {
+            hoverButton.style.backgroundColor = 'yellow';
+        });
+
+        hoverButton.addEventListener('mouseleave', function () {
+            hoverButton.style.backgroundColor = 'initial'; // Reset to default color
+        });
+
+        // Q#9
+        const playSoundLink2 = document.getElementById('playSoundLink2');
+        const myAudio2 = document.getElementById('myAudio');
+
+        playSoundLink2.addEventListener('click', function () {
+            myAudio2.play();
+        });
+
+        // Q#10
+        const hoverElement = document.getElementById('hoverElement');
+        hoverElement.addEventListener('mouseover', function () {
+            alert('Mouse over element!');
+        });
+
+        // Q#11
+        const hideButton2 = document.getElementById('hideOnMouseOut');
+        hideButton2.addEventListener('click', function () {
+            hideButton2.style.display = 'none';
+        });
+
+        // Q#12
+        const openWindowLink = document.getElementById('openWindowLink');
+        let newWindow;
+
+        openWindowLink.addEventListener('click', function () {
+            // Open a new window
+            newWindow = window.open('', 'myWindow', 'width=400,height=300');
+
+            // Write content to the new window
+            newWindow.document.write('<button id="closeWindowButton">Close Window</button>');
+
+            // Add an event listener to the close button in the new window
+            const closeWindowButton = newWindow.document.getElementById('closeWindowButton');
+            closeWindowButton.addEventListener('click', function () {
+                newWindow.close(); // Close the new window
+            });
+        });
+
+        // *************************************Chapter 49 To 50******************************************
+        const registrationForm = document.getElementById('registrationForm');
+
+        registrationForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const gender = document.getElementById('gender').value;
+            const married = document.getElementById('married').checked;
+
+            // Validate the form fields
+            if (password !== confirmPassword) {
+                alert('Password and Confirm Password do not match.');
+                return;
+            }
+
+            // Perform further validation as needed
+
+            // If all validation passes, you can proceed with form submission or other actions
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Gender:', gender);
+            console.log('Married:', married ? 'Yes' : 'No');
+
+            // You can submit the form to a server or perform other actions here
+
+            // Clear the form
+            registrationForm.reset();
+        });
+
+        // <!-- *************************************Chapter 51****************************************** -->
+
+        // Q#1
+        function toggleVisibility() {
+            const hiddenContent = document.getElementById('one');
+            hiddenContent.innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, blanditiis fugiat. Tempore repellendus soluta debitis provident voluptatibus cumque eum saepe pariatur nesciunt fuga. Nam eligendi culpa deleniti consequuntur accusamus fugit?'
+            hiddenContent.style.textDecoration = 'none'
+        }
+
+        // Q#2
+
+        function searchWord() {
+            const paragraphText = document.getElementById('paragraph').textContent;
+            const searchWord = document.getElementById('searchInput').value;
+            const index = paragraphText.indexOf(searchWord);
+
+            if (index !== -1) {
+                alert(`"${searchWord}" found at position ${index}`);
+            } else {
+                alert(`"${searchWord}" not found in the paragraph.`);
+            }
+        }
+
+
+        // Q#3
+
+        function searchLongestWord() {
+            const paragraphText = document.getElementById('paragraph2').textContent;
+            const words = paragraphText.split(/\s+/);
+            let longestWord = '';
+
+            for (const word of words) {
+                if (word.length > longestWord.length) {
+                    longestWord = word;
+                }
+            }
+
+            alert(`The longest word in the paragraph is "${longestWord}"`);
+        }
+
+        // Q#4
+        function setTextFromField() {
+            const textField = document.getElementById('textField');
+            const outputParagraph = document.getElementById('outputParagraph');
+            const text = textField.value.trim(); // Remove leading/trailing spaces
+
+            if (text) {
+                outputParagraph.textContent = text;
+            } else {
+                alert('Text field is empty. Please enter some text.');
+            }
+        }
+
+
+        // Q#5
+        function setTextFromField2() {
+            // Get the value of the text input field
+            const inputValue = document.getElementById('textField2').value;
+
+            // Check if the input value is equal to a specific word or phrase
+            if (inputValue === 'specificWordOrPhrase') {
+                // If it's equal, set the text of the paragraph
+                document.getElementById('outputParagraph').textContent = inputValue;
+            } else {
+                // If it's not equal, you can choose to do nothing or display an error message
+                alert('Input does not match the specific word or phrase.');
+            }
+        }
+        // Q#6
+        function setTextFromField3() {
+            const textField = document.getElementById('textField3');
+            const outputParagraph = document.getElementById('outputParagraph3');
+            const text = textField.value.trim(); // Remove leading/trailing spaces
+
+            if (text.length == 10) {
+                outputParagraph.textContent = text;
+            } else {
+                alert('Text field size is not equal to 10. Please enter length of 10.');
+            }
+        }
+
+        // <!-- *************************************Chapter 52****************************************** -->
+
+        // Q#1
+        function toggleBold() {
+            const textElement = document.getElementById('boldText');
+            textElement.style.fontWeight = textElement.style.fontWeight === 'bold' ? 'normal' : 'bold';
+        }
+
+        // Q#2
+        function hideImage() {
+            document.getElementById('myImage').style.display = 'none';
+            document.getElementById('imageText').style.display = 'block';
+        }
+
+        function showImage() {
+            document.getElementById('myImage').style.display = 'block';
+            document.getElementById('imageText').style.display = 'none';
+        }
+
+
+    </script>
+</body>
+
+</html>
